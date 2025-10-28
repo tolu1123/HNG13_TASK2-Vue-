@@ -14,7 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { toastError, toastSuccess } from "@/lib/toasts";
 import { useTicketManagement } from '~/composables/useTicketManagement';
-import { Ticket } from "lucide-vue-next";
 
 const { deleteTicket } = useTicketManagement();
 
@@ -52,6 +51,7 @@ const handleDelete = async () => {
 
   if (success) {
     open.value = false;
+    navigateTo("/ticket-management")
     toastSuccess(`Ticket "${props.ticket.id.slice(0, 8)}" has been deleted successfully.`);
     
     await navigateTo(useRoute().path, { replace: true });

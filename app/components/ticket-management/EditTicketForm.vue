@@ -57,7 +57,7 @@ const form = useForm({
 // Submission handler
 const onSubmit = form.handleSubmit(async (values) => {
   try {
-    
+
     const { error, success } = await updateTicket(props.ticket.id, values)
 
     if (error) {
@@ -68,6 +68,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     if (success) {
       form.resetForm({ values })
       props.setOpen(false)
+      navigateTo("/ticket-management")
       toast.success(`Ticket "${values.title}" has been updated successfully.`)
     }
     // eslint-disable-next-line

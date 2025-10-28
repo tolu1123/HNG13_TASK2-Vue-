@@ -21,7 +21,8 @@ const props = withDefaults(defineProps<SidebarProps>(), {
 const { logout } = useAuth()
 
 const handleOut = async () => {
-  await logout;
+  await logout();
+  navigateTo("/login")
 }
 // This is sample data.
 const data = {

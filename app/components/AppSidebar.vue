@@ -11,11 +11,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { Button } from "@/components/ui/button"
+import { useAuth } from "@/composables/useAuth"
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   variant: "floating",
 })
 
+const { logout } = useAuth()
+
+const handleOut = async () => {
+  await logout;
+}
 // This is sample data.
 const data = {
   items: [
@@ -62,5 +69,15 @@ const data = {
         </SidebarMenu>
       </SidebarGroup>
     </SidebarContent>
+    <SidebarFooter>
+        <Button
+          variant='ghost'
+          class='w-full justify-start text-red-600 hover:text-red-700'
+          @click="handleOut"
+        >
+          <v-icon name="md-logout-round" class='mr-2 h-4 w-4' size="4" />
+          Sign Out
+        </Button>
+      </SidebarFooter>
   </Sidebar>
 </template>

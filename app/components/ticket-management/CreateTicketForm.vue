@@ -14,6 +14,9 @@ import { useForm } from "vee-validate"
 import { toTypedSchema } from "@vee-validate/zod"
 import * as z from "zod"
 import { toast } from "vue-sonner" // or use your custom toast composable
+import { useTicketManagement } from '~/composables/useTicketManagement';
+
+const { createTicket } = useTicketManagement();
 
 // Define props
 const props = defineProps<{
@@ -48,10 +51,7 @@ const form = useForm({
 const onSubmit = form.handleSubmit(async (values) => {
   try {
     // --- Replace this with your Supabase call
-    // const { error, success } = await createTicket(values)
-    const success = true
-    const error = null
-    // ---
+    const { error, success } = await createTicket(values)
 
     if (error) {
       toast.error(typeof error === "string" ? error : "An error occurred.")

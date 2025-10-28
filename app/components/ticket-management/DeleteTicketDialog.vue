@@ -13,6 +13,10 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { toastError, toastSuccess } from "@/lib/toasts";
+import { useTicketManagement } from '~/composables/useTicketManagement';
+import { Ticket } from "lucide-vue-next";
+
+const { deleteTicket } = useTicketManagement();
 
 // Props
 const props = defineProps<{
@@ -32,8 +36,7 @@ const handleDelete = async () => {
   if (loading.value) return;
   loading.value = true;
 
-  const error = null;
-  const success = null;
+   const { error, success } = await deleteTicket(props.ticket.id);
 
   if (error) {
     if (typeof error === "string") {

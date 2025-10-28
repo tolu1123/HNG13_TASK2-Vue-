@@ -14,6 +14,9 @@ import { useForm } from "vee-validate"
 import { toTypedSchema } from "@vee-validate/zod"
 import * as z from "zod"
 import { toast } from "vue-sonner"
+import { useTicketManagement } from '~/composables/useTicketManagement';
+
+const { updateTicket } = useTicketManagement();
 
 // Props
 const props = defineProps<{
@@ -54,9 +57,8 @@ const form = useForm({
 // Submission handler
 const onSubmit = form.handleSubmit(async (values) => {
   try {
-    // const { error, success } = await updateTicket(props.ticket.id, values)
-    const success = true
-    const error = null
+    
+    const { error, success } = await updateTicket(props.ticket.id, values)
 
     if (error) {
       toast.error(typeof error === "string" ? error : "An error occurred.")

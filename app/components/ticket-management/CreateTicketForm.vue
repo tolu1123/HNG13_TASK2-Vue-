@@ -61,7 +61,7 @@ const onSubmit = form.handleSubmit(async (values) => {
     if (success) {
       form.resetForm()
       props.setOpen(false)
-      navigateTo("/ticket-management")
+      await navigateTo('/ticket-management', { external: true })
       toast.success(`Ticket "${values.title}" has been created successfully.`)
     }
   // eslint-disable-next-line

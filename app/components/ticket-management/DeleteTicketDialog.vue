@@ -51,7 +51,7 @@ const handleDelete = async () => {
 
   if (success) {
     open.value = false;
-    navigateTo("/ticket-management")
+    await navigateTo('/ticket-management', { external: true })
     toastSuccess(`Ticket "${props.ticket.id.slice(0, 8)}" has been deleted successfully.`);
     
     await navigateTo(useRoute().path, { replace: true });

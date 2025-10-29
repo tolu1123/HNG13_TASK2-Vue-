@@ -4,9 +4,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+  BreadcrumbList
 } from '@/components/ui/breadcrumb'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -14,6 +12,9 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>
 
 <script lang="ts">
@@ -37,13 +38,10 @@ export const description = "A floating sidebar with submenus."
           <BreadcrumbList>
             <BreadcrumbItem class="hidden md:block">
               <BreadcrumbLink href="#">
-                Building Your Application
+                {{ route.path.replace("/", "").split("-").map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()).join(" ") }}
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator class="hidden md:block" />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-            </BreadcrumbItem>
+             
           </BreadcrumbList>
         </Breadcrumb>
       </header>

@@ -1,75 +1,75 @@
-# Nuxt Minimal Starter
+# HNG13_TASK2-Vue
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A Vue + TypeScript project created for HNG 13 Task 2.
 
-## Setup
+## 🚀 Project Overview
 
-Make sure to install dependencies:
+This project is a frontend application built with Vue (and TypeScript) that fulfils the second task in the HNG 13 stream. The codebase uses modern tooling and is structured for clarity and maintainability.
 
-```bash
-# npm
+## 🧰 Tech Stack
+
+- Vue (Vue 3)  
+- TypeScript  
+- CSS (or your preferred styling)  
+- ESLint configuration (`eslint.config.mjs`)  
+- Configuration files: `tsconfig.json`, `package.json`, etc.  
+- Directory structure:  
+/app
+/public
+.gitignore
+components.json
+nuxt.config.ts
+...
+
+bash
+Copy code
+
+## 📦 Installation
+
+1. Clone the repository  
+ ```bash
+ git clone https://github.com/tolu1123/HNG13_TASK2-Vue-.git
+ cd HNG13_TASK2-Vue-
+```
+
+2. Install dependencies
+ ```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+3. 🏃 Development
+Start the development server:
+``` bash
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
+ Then open http://localhost:3000 in your browser (or the port your setup uses).
 
-## Production
-
-Build the application for production:
-
+4. 📦 Build & Production
+To build the project for production:
 ```bash
-# npm
+Copy code
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+5. 🗂 Directory Structure
+Explain key directories/files:
 
-```bash
-# npm
-npm run preview
+/app – main application source files (components, views, etc)
 
-# pnpm
-pnpm preview
+/public – static assets publicly served
 
-# yarn
-yarn preview
+nuxt.config.ts – project configuration (if using Nuxt)
 
-# bun
-bun run preview
-```
+tsconfig.json – TypeScript configuration
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+eslint.config.mjs – linter configuration
+
+etc.
+
+6. ✅ Features
+Built with Vue 3 + TypeScript
+
+Clean project structure
+
+Linting and configuration already in place
+ 

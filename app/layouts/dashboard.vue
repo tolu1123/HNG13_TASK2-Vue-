@@ -25,7 +25,7 @@ export const description = "A floating sidebar with submenus."
 
 
 <template>
-  <SidebarProvider :style="{ '--sidebar-width': '19rem' }">
+  <SidebarProvider :style="{ '--sidebar-width': '19rem' }" class="max-w-[1440px] mx-auto">
     <AppSidebar />
     <SidebarInset>
       <header class="flex h-16 shrink-0 items-center gap-2 px-4">
@@ -41,7 +41,7 @@ export const description = "A floating sidebar with submenus."
                 {{ route.path.replace("/", "").split("-").map(str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()).join(" ") }}
               </BreadcrumbLink>
             </BreadcrumbItem>
-             
+            
           </BreadcrumbList>
         </Breadcrumb>
       </header>

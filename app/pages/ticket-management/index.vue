@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuth } from '@/composables/useAuth'
 import { useTickets } from '@/composables/useTickets'
+import { useProfile } from '@/composables/useProfile'
 import { useRoute } from 'vue-router';
 
 import { ref } from "vue";
@@ -31,20 +32,28 @@ type Ticket = {
 };
 
 const ticketData = ref<Ticket[]>([]);
+const profileData = ref<{ username: string }[]>([]);
 const error = ref<string | null>(null);
 const { tickets } = useTickets()
+const { profiles } = useProfile()
 
 const getData = async() => {
   try {
     const { data, error: ticketError } = await tickets();
+    const { profiles: profilesData, profileError } = await profiles();
 
-    if (ticketError) {
-      error.value = ticketError.message || 'Failed to fetch tickets';
+
+    if (ticketError || profileError) {
+      error.value ='Failed to fetch data';
       return;
     }
 
     if (data) {
       ticketData.value = data; // Now properly typed as Ticket[]
+    }
+
+    if (profilesData) {
+      profileData.value = profilesData;
     }
   } catch (err) {
     error.value = 'An unexpected error occurred';
@@ -54,39 +63,7 @@ const getData = async() => {
 
 getData()
 
-
-// // Mock data for tickets
-// const tickets = ref<Ticket[]>([
-//   {
-//     id: "1a2b3c4d",
-//     title: "Fix login authentication",
-//     description: "Login fails for certain users with 2FA enabled.",
-//     status: "open",
-//     assignee: "alice",
-//   },
-//   {
-//     id: "5e6f7g8h",
-//     title: "Update dashboard charts",
-//     description: "Charts are not rendering properly on mobile screens.",
-//     status: "in-progress",
-//     assignee: "bob",
-//   },
-//   {
-//     id: "9i0j1k2l",
-//     title: "Resolve notification bug",
-//     description: "Users are not receiving email notifications after signup.",
-//     status: "closed",
-//     assignee: "charlie",
-//   },
-// ]);
-
-// Mock data for profiles
-const profiles = ref([
-  { username: "alice" },
-  { username: "bob" },
-  { username: "charlie" },
-]);
-
+ 
 definePageMeta({
   layout: 'dashboard',
 })
@@ -97,11 +74,11 @@ definePageMeta({
     <!-- Top bar: Search + Create Ticket -->
     <section class="flex gap-5 mb-5">
       <SearchBar />
-      <CreateTicketDialog :profiles="profiles" />
+      <CreateTicketDialog :profiles="profileData" />
     </section>
 
     <!-- Ticket grid -->
     <div v-if="error">An error occurred: {{ error }}</div>
-    <TicketGrid v-else :tickets="ticketData" :profiles="profiles" />
+    <TicketGrid v-else :tickets="ticketData" :profiles="profileData" />
   </main>
 </template>

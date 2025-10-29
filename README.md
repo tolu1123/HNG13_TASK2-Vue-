@@ -14,15 +14,203 @@ This project is a frontend application built with Vue (and TypeScript) that fulf
 - ESLint configuration (`eslint.config.mjs`)  
 - Configuration files: `tsconfig.json`, `package.json`, etc.  
 - Directory structure:  
-/app
-/public
-.gitignore
-components.json
-nuxt.config.ts
-...
-
-bash
-Copy code
+  ``` bash
+   app/
+    ├── assets/
+        └── css/
+            └── tailwind.css
+    ├── components/
+        ├── auth/
+            ├── LoginForm.vue
+            └── SignupForm.vue
+        ├── header/
+            └── HeaderHome.vue
+        ├── home/
+            ├── About.vue
+            └── Hero.vue
+        ├── ticket-management/
+            ├── CreateTicketDialog.vue
+            ├── CreateTicketForm.vue
+            ├── DeleteTicketDialog.vue
+            ├── EditTicketDialog.vue
+            ├── EditTicketForm.vue
+            ├── SearchBar.vue
+            ├── StatusBadge.vue
+            ├── TicketCard.vue
+            └── TicketGrid.vue
+        ├── ui/
+            ├── badge/
+                ├── Badge.vue
+                └── index.ts
+            ├── breadcrumb/
+                ├── Breadcrumb.vue
+                ├── BreadcrumbEllipsis.vue
+                ├── BreadcrumbItem.vue
+                ├── BreadcrumbLink.vue
+                ├── BreadcrumbList.vue
+                ├── BreadcrumbPage.vue
+                ├── BreadcrumbSeparator.vue
+                └── index.ts
+            ├── button/
+                ├── Button.vue
+                └── index.ts
+            ├── card/
+                ├── Card.vue
+                ├── CardAction.vue
+                ├── CardContent.vue
+                ├── CardDescription.vue
+                ├── CardFooter.vue
+                ├── CardHeader.vue
+                ├── CardTitle.vue
+                └── index.ts
+            ├── dialog/
+                ├── Dialog.vue
+                ├── DialogClose.vue
+                ├── DialogContent.vue
+                ├── DialogDescription.vue
+                ├── DialogFooter.vue
+                ├── DialogHeader.vue
+                ├── DialogOverlay.vue
+                ├── DialogScrollContent.vue
+                ├── DialogTitle.vue
+                ├── DialogTrigger.vue
+                └── index.ts
+            ├── field/
+                ├── Field.vue
+                ├── FieldContent.vue
+                ├── FieldDescription.vue
+                ├── FieldError.vue
+                ├── FieldGroup.vue
+                ├── FieldLabel.vue
+                ├── FieldLegend.vue
+                ├── FieldSeparator.vue
+                ├── FieldSet.vue
+                ├── FieldTitle.vue
+                └── index.ts
+            ├── form/
+                ├── FormControl.vue
+                ├── FormDescription.vue
+                ├── FormItem.vue
+                ├── FormLabel.vue
+                ├── FormMessage.vue
+                ├── index.ts
+                ├── injectionKeys.ts
+                └── useFormField.ts
+            ├── input/
+                ├── index.ts
+                └── Input.vue
+            ├── label/
+                ├── index.ts
+                └── Label.vue
+            ├── select/
+                ├── index.ts
+                ├── Select.vue
+                ├── SelectContent.vue
+                ├── SelectGroup.vue
+                ├── SelectItem.vue
+                ├── SelectItemText.vue
+                ├── SelectLabel.vue
+                ├── SelectScrollDownButton.vue
+                ├── SelectScrollUpButton.vue
+                ├── SelectSeparator.vue
+                ├── SelectTrigger.vue
+                └── SelectValue.vue
+            ├── separator/
+                ├── index.ts
+                └── Separator.vue
+            ├── sheet/
+                ├── index.ts
+                ├── Sheet.vue
+                ├── SheetClose.vue
+                ├── SheetContent.vue
+                ├── SheetDescription.vue
+                ├── SheetFooter.vue
+                ├── SheetHeader.vue
+                ├── SheetOverlay.vue
+                ├── SheetTitle.vue
+                └── SheetTrigger.vue
+            ├── sidebar/
+                ├── index.ts
+                ├── Sidebar.vue
+                ├── SidebarContent.vue
+                ├── SidebarFooter.vue
+                ├── SidebarGroup.vue
+                ├── SidebarGroupAction.vue
+                ├── SidebarGroupContent.vue
+                ├── SidebarGroupLabel.vue
+                ├── SidebarHeader.vue
+                ├── SidebarInput.vue
+                ├── SidebarInset.vue
+                ├── SidebarMenu.vue
+                ├── SidebarMenuAction.vue
+                ├── SidebarMenuBadge.vue
+                ├── SidebarMenuButton.vue
+                ├── SidebarMenuButtonChild.vue
+                ├── SidebarMenuItem.vue
+                ├── SidebarMenuSkeleton.vue
+                ├── SidebarMenuSub.vue
+                ├── SidebarMenuSubButton.vue
+                ├── SidebarMenuSubItem.vue
+                ├── SidebarProvider.vue
+                ├── SidebarRail.vue
+                ├── SidebarSeparator.vue
+                ├── SidebarTrigger.vue
+                └── utils.ts
+            ├── skeleton/
+                ├── index.ts
+                └── Skeleton.vue
+            ├── textarea/
+                ├── index.ts
+                └── Textarea.vue
+            └── tooltip/
+                ├── index.ts
+                ├── Tooltip.vue
+                ├── TooltipContent.vue
+                ├── TooltipProvider.vue
+                └── TooltipTrigger.vue
+        ├── universal/
+            └── Footer.vue
+        └── AppSidebar.vue
+    ├── composables/
+        ├── useAuth.ts
+        ├── useTicketManagement.ts
+        └── useTickets.ts
+    ├── layouts/
+        ├── dashboard.vue
+        └── default.vue
+    ├── lib/
+        ├── validations/
+            └── ticket.ts
+        ├── toasts.ts
+        └── utils.ts
+    ├── middleware/
+        └── auth.ts
+    ├── pages/
+        ├── dashboard/
+            └── index.vue
+        ├── ticket-management/
+            └── index.vue
+        ├── index.vue
+        ├── login.vue
+        └── sign-up.vue
+    └── plugins/
+        ├── oh-vue-icons.client.ts
+        ├── sonner.client.ts
+        ├── ssr-width.ts
+        └── supabase.client.ts
+   public/
+       ├── favicon.ico
+       ├── placeholder.svg
+       └── robots.txt
+   .gitignore
+   components.json
+   eslint.config.mjs
+   nuxt.config.ts
+   package-lock.json
+   package.json
+   README.md
+   tsconfig.json
+  ```
 
 ## 📦 Installation
 
